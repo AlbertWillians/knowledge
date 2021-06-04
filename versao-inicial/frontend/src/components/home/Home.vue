@@ -24,30 +24,6 @@
 				icon="fa fa-user"
 				color="#3282cd"
 			/>
-			<Stat
-				title="Usuários"
-				:value="stat.users"
-				icon="fa fa-user"
-				color="#3282cd"
-			/>
-			<Stat
-				title="Usuários"
-				:value="stat.users"
-				icon="fa fa-user"
-				color="#3282cd"
-			/>
-			<Stat
-				title="Usuários"
-				:value="stat.users"
-				icon="fa fa-user"
-				color="#3282cd"
-			/>
-			<Stat
-				title="Usuários"
-				:value="stat.users"
-				icon="fa fa-user"
-				color="#3282cd"
-			/>
 		</div>
 	</div>
 </template>
