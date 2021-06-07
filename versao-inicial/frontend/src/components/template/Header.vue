@@ -49,7 +49,7 @@
 	}
 
 	.title {
-		font-size: 1.2rem;
+		font-size: 1.4rem;
 		color: #fff;
 		font-weight: 100;
 		flex-grow: 1;
@@ -67,7 +67,7 @@
 	}
 
 	header.header > a.toogle {
-		width: 42px;
+		width: 60px;
 		height: 100%;
 		color: #fff;
 		justify-self: flex-start;
