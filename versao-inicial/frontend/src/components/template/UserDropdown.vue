@@ -59,7 +59,7 @@
 		position: absolute;
 		right: 0;
 		background-color: #f9f9f9;
-		min-width: 160px;
+		min-width: 180px;
 		box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
 		padding: 12px;
 		z-index: 1;
