@@ -6,7 +6,8 @@
 			:hideUserDropdown="!user"
 		/>
 		<Menu v-if="user" />
-		<Content />
+		<Loading v-if="validatingToken" />
+		<Content v-else />
 		<Footer />
 	</div>
 </template>
@@ -19,45 +20,46 @@
 	import Menu from "./components/template/Menu";
 	import Content from "./components/template/Content";
 	import Footer from "./components/template/Footer";
+	import Loading from "./components/template/Loading";
 
 	export default {
 		name: "App",
-		components: { Header, Menu, Content, Footer },
+		components: { Header, Menu, Content, Footer, Loading },
 		computed: mapState(["isMenuVisible", "user"]),
-		data: function() {
+		data: function () {
 			return {
-				validatingToken: true
-			}
+				validatingToken: true,
+			};
 		},
 		methods: {
 			async validateToken() {
-				this.validatingToken = true
+				this.validatingToken = true;
 
-				const json = localStorage.getItem(userKey)
-				const userData = JSON.parse(json)
-				this.$store.commit('setUser', null)
+				const json = localStorage.getItem(userKey);
+				const userData = JSON.parse(json);
+				this.$store.commit("setUser", null);
 
-				if(!userData) {
-					this.validatingToken = false
-					this.$router.push({name = 'auth'})
-					return
+				if (!userData) {
+					this.validatingToken = false;
+					this.$router.push({ name: "auth" });
+					return;
 				}
 
-				const res = await axios.post(`${baseApiUrl}/validateToken`, userData)
+				const res = await axios.post(`${baseApiUrl}/validateToken`, userData);
 
-				if(res.data) {
-					this.$store.commit('setUser', userData)
+				if (res.data) {
+					this.$store.commit("setUser", userData);
 				} else {
-					localStorage.removeItem(userKey)
-					this.$router.push({name: 'auth'})
+					localStorage.removeItem(userKey);
+					this.$router.push({ name: "auth" });
 				}
 
-				this.validatingToken = false
-			}
+				this.validatingToken = false;
+			},
 		},
 		created() {
-			this.validateToken()
-		}
+			this.validateToken();
+		},
 	};
 </script>
 
