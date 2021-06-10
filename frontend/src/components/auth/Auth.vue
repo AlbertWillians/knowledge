@@ -120,9 +120,11 @@
 		background-color: #2460ae;
 		color: #fff;
 		padding: 5px 15px;
+		outline: none;
 	}
 
 	.auth-modal button:hover {
+		cursor: pointer;
 		background-color: #1450aa;
 	}
 
