@@ -4,8 +4,12 @@
 			<i class="fa fa-lg" :class="icon"></i>
 		</a>
 
-		<h1 class="title">
+		<h1 class="title" v-if="!hideToggle">
 			<router-link to="/">{{ title }}</router-link>
+		</h1>
+
+		<h1 class="title-auth" v-if="hideToggle">
+			<router-link to="">{{ title }}</router-link>
 		</h1>
 
 		<UserDropdown v-if="!hideUserDropdown" />
@@ -48,7 +52,8 @@
 		align-items: center;
 	}
 
-	.title {
+	.title,
+	.title-auth {
 		font-size: 1.4rem;
 		color: #fff;
 		font-weight: 100;
@@ -56,7 +61,8 @@
 		text-align: center;
 	}
 
-	.title a {
+	.title a,
+	.title-auth a {
 		color: #fff;
 		text-decoration: none;
 	}
@@ -64,6 +70,12 @@
 	.title a:hover {
 		color: #fff;
 		text-decoration: none;
+	}
+
+	.title-auth a:hover {
+		color: #fff;
+		text-decoration: none;
+		cursor: default;
 	}
 
 	header.header > a.toogle {
